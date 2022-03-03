@@ -5,12 +5,11 @@
 		$file_name = $_FILES['file']['name'];
 		$file_temp = $_FILES['file']['tmp_name'];
 		$file_size = $_FILES['file']['size'];
-		$exp = explode(".", $file_name);
-		$ext = end($exp);
-		$name = date("Y-m-d h-i-s").".".$ext;
+		$file_type = $_FILES['file']['type'];
+		$name = $file_name;
 		$path = "uploads/".$name;
 		
-		if($file_size > 5242880){
+		if($file_size > 52428800){
 			echo "<script>alert('File too large')</script>";
 			echo "<script>window.location='index.php'</script>";
 		}else{
